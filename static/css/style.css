@@ -1,0 +1,364 @@
+:root {
+    /* Light Theme Colors */
+    --bg-color: #f4f7fb;
+    --text-color: #1e293b;
+    --card-bg: rgba(255, 255, 255, 0.8);
+    --border-color: rgba(203, 213, 225, 0.5);
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --secondary-color: #64748b;
+    --danger-color: #ef4444;
+    --success-color: #22c55e;
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+    --nav-bg: rgba(255, 255, 255, 0.85);
+}
+
+[data-theme="dark"] {
+    /* Dark Theme Colors */
+    --bg-color: #0f172a;
+    --text-color: #f8fafc;
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --border-color: rgba(51, 65, 85, 0.5);
+    --primary-color: #60a5fa;
+    --primary-hover: #3b82f6;
+    --secondary-color: #94a3b8;
+    --danger-color: #f87171;
+    --success-color: #4ade80;
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    --nav-bg: rgba(15, 23, 42, 0.85);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Glassmorphism Utilities */
+.glass {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: var(--glass-shadow);
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-brand a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.welcome-text {
+    font-weight: 500;
+    margin-right: 1rem;
+    color: var(--secondary-color);
+}
+
+/* Buttons */
+.btn-nav, .btn {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btn-icon {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    flex: 1;
+    width: 100%;
+}
+
+/* Forms */
+.form-container {
+    max-width: 450px;
+    margin: 4rem auto;
+    padding: 2.5rem;
+    text-align: center;
+}
+
+.form-container h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+select.form-control {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2394a3b8%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem top 50%;
+    background-size: 0.65rem auto;
+}
+
+.btn-block {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.75rem;
+}
+
+/* Flash Messages */
+.flash-messages {
+    margin-bottom: 2rem;
+}
+.flash-alert {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+.flash-success {
+    background-color: rgba(34, 197, 94, 0.2);
+    border: 1px solid var(--success-color);
+    color: var(--success-color);
+}
+.flash-error {
+    background-color: rgba(239, 68, 68, 0.2);
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
+}
+
+/* Dashboard / Cards */
+.page-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--primary-color), #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.candidate-card {
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.candidate-card:hover {
+    transform: translateY(-5px);
+}
+
+.candidate-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.candidate-card .party {
+    color: var(--secondary-color);
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.candidate-card .constituency {
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+/* Biometric Simulation */
+.biometric-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+    background: rgba(59, 130, 246, 0.1);
+    border: 2px dashed var(--primary-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: var(--text-color);
+    font-weight: 600;
+}
+.biometric-btn:hover {
+    background: rgba(59, 130, 246, 0.2);
+}
+
+.fingerprint-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s;
+}
+
+.scanning {
+    animation: scan 1.5s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+.scanning .fingerprint-icon {
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color);
+}
+
+@keyframes scan {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Admin Results Table */
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+}
+
+.results-table th, .results-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.results-table th {
+    font-weight: 600;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.results-table tr:hover td {
+    background: rgba(255,255,255,0.05);
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 8px;
+    background: var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 4rem 1rem;
+}
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.hero p {
+    font-size: 1.25rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}

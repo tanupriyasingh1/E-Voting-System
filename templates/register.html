@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Register - E-Voting System{% endblock %}
+
+{% block content %}
+<div class="form-container glass">
+    <h2>Voter Registration</h2>
+    <form action="{{ url_for('register') }}" method="POST">
+        <div class="form-group">
+            <label for="name">Full Name (as per Aadhar)</label>
+            <input type="text" id="name" name="name" class="form-control" required placeholder="John Doe">
+        </div>
+        
+        <div class="form-group">
+            <label for="aadhar">Aadhar Number</label>
+            <input type="text" id="aadhar" name="aadhar" class="form-control" required pattern="[0-9]{12}" title="12 digit Aadhar number" placeholder="123456789012">
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="phone" class="form-control" required pattern="[0-9]{10}" title="10 digit phone number" placeholder="9876543210">
+        </div>
+        
+        <div style="display: flex; gap: 1rem;">
+            <div class="form-group" style="flex: 1;">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" class="form-control" required min="18" max="120" placeholder="18+">
+            </div>
+            
+            <div class="form-group" style="flex: 1;">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" class="form-control" required>
+                    <option value="" disabled selected>Select...</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control" required placeholder="Create a strong password">
+        </div>
+        
+        <button type="submit" class="btn btn-primary btn-block">Register for Voting</button>
+    </form>
+    <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--secondary-color);">
+        Already registered? <a href="{{ url_for('login') }}" style="color: var(--primary-color);">Login here</a>
+    </p>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Polling Booth - E-Voting System{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Digital Polling Booth</h1>
+    <p>Please review the candidates and cast your vote securely.</p>
+</div>
+
+{% if has_voted %}
+<div class="form-container glass" style="max-width: 600px;">
+    <div style="font-size: 4rem; margin-bottom: 1rem;">✅</div>
+    <h2>Thank You for Voting!</h2>
+    <p style="color: var(--secondary-color); margin-bottom: 2rem;">Your vote has been successfully recorded in the encrypted database. You cannot vote again.</p>
+    <a href="{{ url_for('logout') }}" class="btn btn-primary">Logout Securely</a>
+</div>
+{% else %}
+<div class="cards-grid">
+    {% for candidate in candidates %}
+    <div class="candidate-card glass">
+        <h3>{{ candidate.CName }}</h3>
+        <div class="party">{{ candidate.PName }}</div>
+        <div class="constituency">Constituency: {{ candidate.ConstName }}</div>
+        
+        <form action="{{ url_for('vote', candidate_id=candidate.Candidate_ID) }}" method="POST">
+            <!-- Simulated Biometric Button -->
+            <button type="submit" class="biometric-btn">
+                <div class="fingerprint-icon">👆</div>
+                <span>Verify & Vote</span>
+            </button>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="glass" style="margin-top: 3rem; padding: 1.5rem; border-left: 4px solid var(--primary-color);">
+    <h4 style="margin-bottom: 0.5rem;">ℹ️ Election Commission Guidelines</h4>
+    <p style="font-size: 0.9rem; color: var(--secondary-color);">Ensure you are in a private environment before casting your vote. By clicking "Verify & Vote", you simulate a biometric Aadhar scan to authenticate your identity instantly.</p>
+</div>
+{% endif %}
+{% endblock %}

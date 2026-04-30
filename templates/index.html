@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome - E-Voting System{% endblock %}
+
+{% block content %}
+<div class="hero glass">
+    <h1>Secure E-Voting System</h1>
+    <p>A reliable, transparent, and easy-to-use digital platform for casting your vote from anywhere.</p>
+    
+    <div style="margin-top: 2rem;">
+        <a href="{{ url_for('register') }}" class="btn btn-primary" style="font-size: 1.1rem; padding: 0.75rem 2rem;">Get Started</a>
+        <a href="{{ url_for('login') }}" class="btn btn-secondary" style="font-size: 1.1rem; padding: 0.75rem 2rem; margin-left: 1rem;">Login</a>
+    </div>
+</div>
+
+<div class="cards-grid" style="margin-top: 3rem;">
+    <div class="candidate-card glass">
+        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🔒</div>
+        <h3>Secure & Reliable</h3>
+        <p style="color: var(--secondary-color); font-size: 0.9rem;">State-of-the-art encryption ensures your vote remains anonymous and tamper-proof.</p>
+    </div>
+    
+    <div class="candidate-card glass">
+        <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
+        <h3>Fast & Efficient</h3>
+        <p style="color: var(--secondary-color); font-size: 0.9rem;">No more waiting in long queues. Cast your vote in seconds from your device.</p>
+    </div>
+    
+    <div class="candidate-card glass">
+        <div style="font-size: 2.5rem; margin-bottom: 1rem;">📊</div>
+        <h3>Transparent Results</h3>
+        <p style="color: var(--secondary-color); font-size: 0.9rem;">Real-time accurate result tracking ensures total transparency in the democratic process.</p>
+    </div>
+</div>
+{% endblock %}

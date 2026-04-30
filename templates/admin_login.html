@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Login - E-Voting System{% endblock %}
+
+{% block content %}
+<div class="form-container glass" style="border-top: 4px solid var(--danger-color);">
+    <h2 style="color: var(--danger-color);">Admin Portal</h2>
+    <p style="color: var(--secondary-color); margin-bottom: 1.5rem; font-size: 0.9rem;">Restricted access for election officials only.</p>
+    <form action="{{ url_for('admin_login') }}" method="POST">
+        <div class="form-group">
+            <label for="username">Admin Username</label>
+            <input type="text" id="username" name="username" class="form-control" required placeholder="Enter admin username">
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control" required placeholder="Enter password">
+        </div>
+        
+        <button type="submit" class="btn btn-danger btn-block">Access Secure Portal</button>
+    </form>
+</div>
+{% endblock %}

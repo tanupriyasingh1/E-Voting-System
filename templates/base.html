@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}E-Voting System{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="{{ url_for('index') }}">🇮🇳 E-Voting System</a>
+        </div>
+        <div class="nav-links">
+            {% if session.get('voter_id') %}
+                <span class="welcome-text">Welcome, {{ session.get('name') }}</span>
+                <a href="{{ url_for('dashboard') }}" class="btn-nav">Polling Booth</a>
+                <a href="{{ url_for('logout') }}" class="btn-nav btn-danger">Logout</a>
+            {% elif session.get('admin_id') %}
+                <span class="welcome-text">Admin Panel</span>
+                <a href="{{ url_for('admin_dashboard') }}" class="btn-nav">Results</a>
+                <a href="{{ url_for('admin_logout') }}" class="btn-nav btn-danger">Logout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" class="btn-nav">Login</a>
+                <a href="{{ url_for('register') }}" class="btn-nav btn-primary">Register</a>
+                <a href="{{ url_for('admin_login') }}" class="btn-nav btn-secondary">Admin</a>
+            {% endif %}
+            <button id="theme-toggle" class="btn-icon" aria-label="Toggle Dark Mode">🌓</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="flash-alert flash-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
