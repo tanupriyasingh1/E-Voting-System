@@ -2,7 +2,11 @@ import sqlite3
 import os
 from werkzeug.security import generate_password_hash
 
-DB_PATH = 'database.db'
+# Use /tmp directory on Vercel because the main filesystem is read-only
+if os.environ.get('VERCEL'):
+    DB_PATH = '/tmp/database.db'
+else:
+    DB_PATH = 'database.db'
 
 def init_db():
     conn = sqlite3.connect(DB_PATH)

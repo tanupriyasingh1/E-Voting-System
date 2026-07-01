@@ -1,14 +1,14 @@
 import sqlite3
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from werkzeug.security import generate_password_hash, check_password_hash
-from models import get_db_connection, init_db
+from models import get_db_connection, init_db, DB_PATH
 import os
 
 app = Flask(__name__)
 app.secret_key = 'your_super_secret_key' # In production, use environment variable
 
 # Initialize DB on startup if it doesn't exist
-if not os.path.exists('database.db'):
+if not os.path.exists(DB_PATH):
     init_db()
 
 @app.route('/')
