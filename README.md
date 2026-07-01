@@ -41,7 +41,6 @@ You can view and test the live application here:
 
 ## 📸 Screenshots
 
-*(You can add screenshots of your project here to make your portfolio stand out)*
 
 <details>
 <summary>Click to view screenshots</summary>
@@ -49,10 +48,7 @@ You can view and test the live application here:
 
 | Login Page | Voting Dashboard | Admin Panel |
 | :---: | :---: | :---: |
-| <img width="1917" height="876" alt="image" src="https://github.com/user-attachments/assets/6567f2ce-a2ec-4e4c-a396-e5400bd523a0" />
- | <img width="1915" height="940" alt="image" src="https://github.com/user-attachments/assets/9731f13d-b871-482d-8166-d896be136340" />
- |<img width="1896" height="927" alt="image" src="https://github.com/user-attachments/assets/cfefe12b-ff7e-4819-9776-dda3810f94de" />
- |
+| <img src="https://github.com/user-attachments/assets/6567f2ce-a2ec-4e4c-a396-e5400bd523a0" width="300" /> | <img src="https://github.com/user-attachments/assets/9731f13d-b871-482d-8166-d896be136340" width="300" /> | <img src="https://github.com/user-attachments/assets/cfefe12b-ff7e-4819-9776-dda3810f94de" width="300" /> |
 
 </details>
 
